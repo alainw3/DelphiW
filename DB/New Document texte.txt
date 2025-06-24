@@ -1,10 +1,1 @@
-﻿DESKTOP-H8VM3SA
-1T2z565%ç*5çx54
-
-DESKTOP-H8VM3SA
-
-192.168.1.134
-
-\\192.168.1.134\
-
-ngs\Administrator>
+﻿j

@@ -1,6 +1,6 @@
 object Form2: TForm2
-  Left = -23
-  Top = 124
+  Left = 509
+  Top = 240
   Width = 1036
   Height = 590
   Caption = 'Form2'
@@ -36,7 +36,7 @@ object Form2: TForm2
     Top = 40
     Width = 209
     Height = 153
-    Date = 45583.974853761570000000
+    Date = 45583.011787453700000000
     TabOrder = 1
     OnClick = MonthCalendar1Click
   end
