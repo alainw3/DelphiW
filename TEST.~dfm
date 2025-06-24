@@ -1,0 +1,94 @@
+object Form1: TForm1
+  Left = 259
+  Top = 106
+  Width = 1032
+  Height = 736
+  Caption = 'Form1'
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  Menu = MainMenu1
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Image1: TImage
+    Left = 272
+    Top = 168
+    Width = 105
+    Height = 105
+    OnClick = Image1Click
+    OnStartDrag = image1StartDrag
+  end
+  object Image2: TImage
+    Left = 472
+    Top = 168
+    Width = 105
+    Height = 105
+    OnDragDrop = image2DragDrop
+  end
+  object BitBtn1: TBitBtn
+    Left = 32
+    Top = 24
+    Width = 185
+    Height = 89
+    Caption = 'FORM2'
+    TabOrder = 0
+    OnClick = BitBtn1Click
+  end
+  object MaskEdit1: TMaskEdit
+    Left = 256
+    Top = 24
+    Width = 161
+    Height = 21
+    TabOrder = 1
+    Text = 'MaskEdit1'
+  end
+  object MaskEdit2: TMaskEdit
+    Left = 256
+    Top = 88
+    Width = 169
+    Height = 21
+    TabOrder = 2
+    Text = 'MaskEdit2'
+  end
+  object GroupBox1: TGroupBox
+    Left = 472
+    Top = 16
+    Width = 185
+    Height = 105
+    Caption = 'GroupBox1'
+    TabOrder = 3
+  end
+  object Button1: TButton
+    Left = 96
+    Top = 152
+    Width = 105
+    Height = 41
+    Caption = 'Canvas'
+    TabOrder = 4
+    OnClick = Button1Click
+  end
+  object GroupBox2: TGroupBox
+    Left = 592
+    Top = 152
+    Width = 145
+    Height = 121
+    Caption = 'GroupBox2'
+    TabOrder = 5
+  end
+  object Panel1: TPanel
+    Left = 472
+    Top = 288
+    Width = 121
+    Height = 97
+    Caption = 'Panel1'
+    TabOrder = 6
+  end
+  object MainMenu1: TMainMenu
+    Left = 32
+    Top = 144
+  end
+end
