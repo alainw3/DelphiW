@@ -27,11 +27,13 @@ type
     DataSource2: TDataSource;
     ADOCommand2: TADOCommand;
     ADODataSet2: TADODataSet;
+    Button3: TButton;
 
     procedure Button1Click(Sender: TObject);
     procedure MonthCalendar1Click(Sender: TObject);
     procedure FormActivate(Sender: TObject);
     procedure Button2Click(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
 
   private
     { Private declarations }
@@ -100,6 +102,24 @@ begin
 
 
 
+end;
+
+procedure TForm2.Button3Click(Sender: TObject);
+begin
+
+         with ADOCommand1 do begin
+
+          CommandText := 'UPDATE country set capital=:NewValueParam2 where name=:NewValueParam  ' ;
+
+          CommandType := cmdText;
+
+          Parameters.ParamByName('NewValueParam').Value   := 'Brazil';
+          Parameters.ParamByName('NewValueParam2').Value  := 'Brazil11';
+
+          Execute;
+          DBGrid1.UpdateAction();
+
+         end;
 end;
 
 end.

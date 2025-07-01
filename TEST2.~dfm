@@ -1,6 +1,6 @@
 object Form2: TForm2
-  Left = 509
-  Top = 240
+  Left = 133
+  Top = 232
   Width = 1036
   Height = 590
   Caption = 'Form2'
@@ -36,7 +36,7 @@ object Form2: TForm2
     Top = 40
     Width = 209
     Height = 153
-    Date = 45583.011787453700000000
+    Date = 45583.831547766200000000
     TabOrder = 1
     OnClick = MonthCalendar1Click
   end
@@ -98,12 +98,12 @@ object Form2: TForm2
     OnClick = Button2Click
   end
   object ADOConnection1: TADOConnection
-    Connected = True
     ConnectionString = 
       'Provider=MSDASQL.1;Password="";Persist Security Info=True;Data S' +
-      'ource=dbtest;Initial Catalog=D:\ARAZAKAR\Societe\Product\Delphi\' +
-      'DB\dbdemos'
+      'ource=dbtest;Initial Catalog=D:\_WORKBASE\_LEARNING\Delphi\DB\db' +
+      'demos'
     LoginPrompt = False
+    Provider = 'MSDASQL.1'
     Left = 108
   end
   object ADOCommand1: TADOCommand

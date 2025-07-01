@@ -1,8 +1,8 @@
 object Form2: TForm2
-  Left = 133
-  Top = 232
+  Left = 209
+  Top = 148
   Width = 1036
-  Height = 590
+  Height = 588
   Caption = 'Form2'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -32,25 +32,25 @@ object Form2: TForm2
     OnClick = Button1Click
   end
   object MonthCalendar1: TMonthCalendar
-    Left = 256
-    Top = 40
+    Left = 792
+    Top = 32
     Width = 209
     Height = 153
-    Date = 45583.831547766200000000
+    Date = 45583.287954074080000000
     TabOrder = 1
     OnClick = MonthCalendar1Click
   end
   object Edit1: TEdit
-    Left = 472
-    Top = 40
+    Left = 320
+    Top = 264
     Width = 121
     Height = 21
     TabOrder = 2
-    Text = 'Edit1'
+    Text = 'Edit1h'
   end
   object DBGrid1: TDBGrid
-    Left = 32
-    Top = 208
+    Left = 24
+    Top = 136
     Width = 569
     Height = 97
     DataSource = DataSource1
@@ -93,9 +93,18 @@ object Form2: TForm2
     Top = 40
     Width = 75
     Height = 25
-    Caption = 'Button2'
+    Caption = 'Chart'
     TabOrder = 5
     OnClick = Button2Click
+  end
+  object Button3: TButton
+    Left = 472
+    Top = 248
+    Width = 105
+    Height = 41
+    Caption = 'Save'
+    TabOrder = 6
+    OnClick = Button3Click
   end
   object ADOConnection1: TADOConnection
     ConnectionString = 
