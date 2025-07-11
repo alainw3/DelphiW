@@ -1,4 +1,4 @@
-unit TEST;
+unit PAGE1;
 
 interface
 
@@ -7,18 +7,14 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, Buttons, Mask,
 
-  TEST2, Menus, ExtCtrls ;
+  PAGE2, Menus, ExtCtrls ;
 type
   TForm1 = class(TForm)
     BitBtn1: TBitBtn;
-    MaskEdit1: TMaskEdit;
-    MaskEdit2: TMaskEdit;
-    GroupBox1: TGroupBox;
     MainMenu1: TMainMenu;
     Button1: TButton;
     Image1: TImage;
     Image2: TImage;
-    GroupBox2: TGroupBox;
     Panel1: TPanel;
 
     procedure BitBtn1Click(Sender: TObject);
@@ -44,9 +40,8 @@ implementation
 
 procedure TForm1.BitBtn1Click(Sender: TObject);
 begin
-    MessageBox(Handle,'test','test',MB_OK);
-    MaskEdit1.Text:='Bonjour';
-    MAskEdit2.Text:=MaskEdit1.Text;
+    MessageBox(Handle,'This page enables to update the database','Page 2',MB_OK);
+
 
     Application.CreateForm(TForm2, Form2);
     Form2.Show;
@@ -77,7 +72,7 @@ begin
 
 
           aPicture := TPicture.Create();
-          aPicture.LoadFromFile('D:\ARAZAKAR\Societe\Product\Delphi\ti_keyboard_map.bmp');
+          aPicture.LoadFromFile('D:\_WORKBASE\_LEARNING\Delphi\ti_keyboard_map.bmp');
           Image1.Picture :=  aPicture;
 
 

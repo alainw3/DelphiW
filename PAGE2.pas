@@ -1,4 +1,4 @@
-unit TEST2;
+unit PAGE2;
 
 interface
 
@@ -28,6 +28,8 @@ type
     ADOCommand2: TADOCommand;
     ADODataSet2: TADODataSet;
     Button3: TButton;
+    Edit2: TEdit;
+    Label2: TLabel;
 
     procedure Button1Click(Sender: TObject);
     procedure MonthCalendar1Click(Sender: TObject);
@@ -36,7 +38,7 @@ type
     procedure Button3Click(Sender: TObject);
 
   private
-    { Private declarations }
+    procedure RefreshDBGrid1()  ;
   public
     { Public declarations }
   end;
@@ -66,20 +68,7 @@ end;
 procedure TForm2.FormActivate(Sender: TObject);
 begin
          //Form1.Hide ;
-
-         with ADOCommand1 do begin
-
-          CommandText := 'SELECT name, capital, continent ' +   'FROM country ' ;
-
-          //+   'WHERE State = :StateParam';
-          //CommandType := cmdText;
-          //Parameters.ParamByName('StateParam').Value := 'HI';
-
-          ADODataSet1.Recordset := Execute;
-          DataSource1 :=    ADODataSet1.DataSource;
-          //DBGrid1.Refresh();
-
-         end;
+         RefreshDBGrid1();
 
 end;
 
@@ -114,13 +103,47 @@ begin
           CommandType := cmdText;
 
           Parameters.ParamByName('NewValueParam').Value   := 'Brazil';
-          Parameters.ParamByName('NewValueParam2').Value  := 'Brazil11';
+          Parameters.ParamByName('NewValueParam2').Value  := Edit2.text;
 
           Execute;
-          DBGrid1.UpdateAction();
+
+         end;
+
+         with ADOCommand1 do begin
+
+          CommandText := 'SELECT name, capital, continent ' +   'FROM country ' ;
+
+          //+   'WHERE State = :StateParam';
+          //CommandType := cmdText;
+          //Parameters.ParamByName('StateParam').Value := 'HI';
+
+          ADODataSet1.Recordset := Execute;
+          DataSource1 :=    ADODataSet1.DataSource;
+          //DBGrid1.Refresh();
+
+         end;
+         RefreshDBGrid1();
+end;
+
+
+procedure TForm2.RefreshDBGrid1();
+begin
+
+         with ADOCommand1 do begin
+
+          CommandText := 'SELECT name, capital, continent ' +   'FROM country ' ;
+
+          //+   'WHERE State = :StateParam';
+          //CommandType := cmdText;
+          //Parameters.ParamByName('StateParam').Value := 'HI';
+
+          ADODataSet1.Recordset := Execute;
+          DataSource1 :=    ADODataSet1.DataSource;
+          //DBGrid1.Refresh();
 
          end;
 end;
+
 
 end.
 

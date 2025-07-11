@@ -1,4 +1,4 @@
-unit TEST;
+unit PAGE1;
 
 interface
 
@@ -7,7 +7,7 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, Buttons, Mask,
 
-  TEST2, Menus, ExtCtrls ;
+  PAGE2, Menus, ExtCtrls ;
 type
   TForm1 = class(TForm)
     BitBtn1: TBitBtn;

@@ -1,6 +1,6 @@
 object Form1: TForm1
-  Left = 259
-  Top = 106
+  Left = 429
+  Top = 122
   Width = 1032
   Height = 736
   Caption = 'Form1'
@@ -12,11 +12,12 @@ object Form1: TForm1
   Font.Style = []
   Menu = MainMenu1
   OldCreateOrder = False
+  WindowState = wsMaximized
   PixelsPerInch = 96
   TextHeight = 13
   object Image1: TImage
-    Left = 272
-    Top = 168
+    Left = 168
+    Top = 232
     Width = 105
     Height = 105
     OnClick = Image1Click
@@ -30,54 +31,22 @@ object Form1: TForm1
     OnDragDrop = image2DragDrop
   end
   object BitBtn1: TBitBtn
-    Left = 32
-    Top = 24
-    Width = 185
-    Height = 89
-    Caption = 'FORM2'
+    Left = 40
+    Top = 416
+    Width = 177
+    Height = 57
+    Caption = 'Edit and Chart'
     TabOrder = 0
     OnClick = BitBtn1Click
   end
-  object MaskEdit1: TMaskEdit
-    Left = 256
-    Top = 24
-    Width = 161
-    Height = 21
-    TabOrder = 1
-    Text = 'MaskEdit1'
-  end
-  object MaskEdit2: TMaskEdit
-    Left = 256
-    Top = 88
-    Width = 169
-    Height = 21
-    TabOrder = 2
-    Text = 'MaskEdit2'
-  end
-  object GroupBox1: TGroupBox
-    Left = 472
-    Top = 16
-    Width = 185
-    Height = 105
-    Caption = 'GroupBox1'
-    TabOrder = 3
-  end
   object Button1: TButton
-    Left = 96
-    Top = 152
+    Left = 32
+    Top = 232
     Width = 105
     Height = 41
-    Caption = 'Canvas'
-    TabOrder = 4
+    Caption = 'Map'
+    TabOrder = 1
     OnClick = Button1Click
-  end
-  object GroupBox2: TGroupBox
-    Left = 592
-    Top = 152
-    Width = 145
-    Height = 121
-    Caption = 'GroupBox2'
-    TabOrder = 5
   end
   object Panel1: TPanel
     Left = 472
@@ -85,7 +54,7 @@ object Form1: TForm1
     Width = 121
     Height = 97
     Caption = 'Panel1'
-    TabOrder = 6
+    TabOrder = 2
   end
   object MainMenu1: TMainMenu
     Left = 32

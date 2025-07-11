@@ -1,4 +1,4 @@
-unit TEST4;
+unit PAGE4;
 
 interface
 uses
@@ -17,7 +17,7 @@ type
   end;
   class procedure TMaClasse.GetInfo(Operation:string) ;
   begin
-                 Application.MessageBox(PChar(Operation),'HELLO',0);
+                 Application.MessageBox(PChar(Operation),'Hello',0);
   end;
 
 
