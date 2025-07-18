@@ -30,15 +30,24 @@ type
     Button3: TButton;
     Edit2: TEdit;
     Label2: TLabel;
+    Label3: TLabel;
+    Edit3: TEdit;
+    Label4: TLabel;
+    Edit4: TEdit;
+    Label5: TLabel;
+    Edit5: TEdit;
 
     procedure Button1Click(Sender: TObject);
     procedure MonthCalendar1Click(Sender: TObject);
     procedure FormActivate(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure Button3Click(Sender: TObject);
+    procedure DBGrid1CellClick(Column: TColumn);
+    procedure DBGrid1Enter(Sender: TObject);
+    procedure DBGrid1EditButtonClick(Sender: TObject);
 
   private
-    { Private declarations }
+    procedure RefreshDBGrid1()  ;
   public
     { Public declarations }
   end;
@@ -68,20 +77,7 @@ end;
 procedure TForm2.FormActivate(Sender: TObject);
 begin
          //Form1.Hide ;
-
-         with ADOCommand1 do begin
-
-          CommandText := 'SELECT name, capital, continent ' +   'FROM country ' ;
-
-          //+   'WHERE State = :StateParam';
-          //CommandType := cmdText;
-          //Parameters.ParamByName('StateParam').Value := 'HI';
-
-          ADODataSet1.Recordset := Execute;
-          DataSource1 :=    ADODataSet1.DataSource;
-          //DBGrid1.Refresh();
-
-         end;
+         RefreshDBGrid1();
 
 end;
 
@@ -119,10 +115,60 @@ begin
           Parameters.ParamByName('NewValueParam2').Value  := Edit2.text;
 
           Execute;
-          
-          DBGrid1.Refresh();
 
          end;
+
+         with ADOCommand1 do begin
+
+          CommandText := 'SELECT name, capital, continent ' +   'FROM country ' ;
+
+          //+   'WHERE State = :StateParam';
+          //CommandType := cmdText;
+          //Parameters.ParamByName('StateParam').Value := 'HI';
+
+          ADODataSet1.Recordset := Execute;
+          DataSource1 :=    ADODataSet1.DataSource;
+          //DBGrid1.Refresh();
+
+         end;
+         RefreshDBGrid1();
+end;
+
+
+procedure TForm2.RefreshDBGrid1();
+begin
+
+         with ADOCommand1 do begin
+
+          CommandText := 'SELECT name, capital, continent ' +   'FROM country ' ;
+
+          //+   'WHERE State = :StateParam';
+          //CommandType := cmdText;
+          //Parameters.ParamByName('StateParam').Value := 'HI';
+
+          ADODataSet1.Recordset := Execute;
+          DataSource1 :=    ADODataSet1.DataSource;
+          //DBGrid1.Refresh();
+
+         end;
+end;
+
+
+procedure TForm2.DBGrid1CellClick(Column: TColumn);
+begin
+      Edit3.Text := Column.DisplayName ;
+
+
+end;
+
+procedure TForm2.DBGrid1Enter(Sender: TObject);
+begin
+         Application.MessageBox('hekko','Hello',0);
+end;
+
+procedure TForm2.DBGrid1EditButtonClick(Sender: TObject);
+begin
+         Application.MessageBox('hekko','Hello',0);
 end;
 
 end.

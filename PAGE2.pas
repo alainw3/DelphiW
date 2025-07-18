@@ -30,12 +30,22 @@ type
     Button3: TButton;
     Edit2: TEdit;
     Label2: TLabel;
+    Label3: TLabel;
+    Edit3: TEdit;
+    Label4: TLabel;
+    Edit4: TEdit;
+    Label5: TLabel;
+    Edit5: TEdit;
 
     procedure Button1Click(Sender: TObject);
     procedure MonthCalendar1Click(Sender: TObject);
     procedure FormActivate(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure Button3Click(Sender: TObject);
+    procedure DBGrid1CellClick(Column: TColumn);
+    procedure DBGrid1Enter(Sender: TObject);
+    procedure DBGrid1EditButtonClick(Sender: TObject);
+    procedure DBGrid1DblClick(Sender: TObject);
 
   private
     procedure RefreshDBGrid1()  ;
@@ -144,6 +154,37 @@ begin
          end;
 end;
 
+
+procedure TForm2.DBGrid1CellClick(Column: TColumn);
+begin
+      Edit3.Text := Column.DisplayName ;
+      if DBGrid1.SelectedRows.Count>0 then
+        Application.MessageBox('hekko','Hello',0);
+
+
+      with DBGrid1.SelectedField do
+        Edit4.Text :=Text;
+
+end;
+
+procedure TForm2.DBGrid1Enter(Sender: TObject);
+begin
+         Application.MessageBox('hekko','Hello',0);
+end;
+
+procedure TForm2.DBGrid1EditButtonClick(Sender: TObject);
+begin
+         Application.MessageBox('hekko','Hello',0);
+end;
+
+procedure TForm2.DBGrid1DblClick(Sender: TObject);
+begin
+           //Application.MessageBox('Rowselect','Hello',0);
+           DBGrid1.SelectedIndex :=0 ;
+           with DBGrid1.SelectedField do
+            Edit5.Text :=Text;
+
+end;
 
 end.
 

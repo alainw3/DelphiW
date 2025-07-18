@@ -1,6 +1,6 @@
 object Form2: TForm2
-  Left = 314
-  Top = 24
+  Left = 198
+  Top = 184
   Width = 1036
   Height = 648
   Align = alCustom
@@ -36,6 +36,27 @@ object Form2: TForm2
     Font.Style = [fsBold]
     ParentFont = False
   end
+  object Label3: TLabel
+    Left = 40
+    Top = 248
+    Width = 28
+    Height = 13
+    Caption = 'Name'
+  end
+  object Label4: TLabel
+    Left = 40
+    Top = 280
+    Width = 32
+    Height = 13
+    Caption = 'Capital'
+  end
+  object Label5: TLabel
+    Left = 40
+    Top = 320
+    Width = 45
+    Height = 13
+    Caption = 'Continent'
+  end
   object Button1: TButton
     Left = 760
     Top = 528
@@ -50,7 +71,7 @@ object Form2: TForm2
     Top = 32
     Width = 209
     Height = 153
-    Date = 45583.649048206020000000
+    Date = 45583.706402939810000000
     TabOrder = 1
     OnClick = MonthCalendar1Click
   end
@@ -74,12 +95,15 @@ object Form2: TForm2
     TitleFont.Height = -11
     TitleFont.Name = 'MS Sans Serif'
     TitleFont.Style = []
+    OnCellClick = DBGrid1CellClick
+    OnEditButtonClick = DBGrid1EditButtonClick
+    OnEnter = DBGrid1Enter
   end
   object DBChart1: TDBChart
-    Left = 32
+    Left = 632
     Top = 336
-    Width = 945
-    Height = 185
+    Width = 345
+    Height = 161
     BackWall.Brush.Color = clWhite
     BackWall.Brush.Style = bsClear
     Title.Text.Strings = (
@@ -103,8 +127,8 @@ object Form2: TForm2
     end
   end
   object Button2: TButton
-    Left = 32
-    Top = 296
+    Left = 896
+    Top = 304
     Width = 75
     Height = 25
     Caption = 'Refresh Chart'
@@ -126,6 +150,30 @@ object Form2: TForm2
     Width = 97
     Height = 21
     TabOrder = 7
+  end
+  object Edit3: TEdit
+    Left = 104
+    Top = 248
+    Width = 81
+    Height = 21
+    TabOrder = 8
+    Text = 'Edit3'
+  end
+  object Edit4: TEdit
+    Left = 104
+    Top = 280
+    Width = 81
+    Height = 21
+    TabOrder = 9
+    Text = 'Edit4'
+  end
+  object Edit5: TEdit
+    Left = 104
+    Top = 312
+    Width = 81
+    Height = 21
+    TabOrder = 10
+    Text = 'Edit5'
   end
   object ADOConnection1: TADOConnection
     ConnectionString = 
