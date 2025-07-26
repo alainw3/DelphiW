@@ -7,7 +7,7 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, Buttons, Mask,
 
-  PAGE2, Menus, ExtCtrls ;
+  PAGE2, Menus, ExtCtrls, DB, ADODB, Grids, DBGrids ;
 type
   TForm1 = class(TForm)
     BitBtn1: TBitBtn;
@@ -16,6 +16,11 @@ type
     Image1: TImage;
     Image2: TImage;
     Panel1: TPanel;
+    ADOConnection1: TADOConnection;
+    ADOCommand1: TADOCommand;
+    DBGrid1: TDBGrid;
+    ADODataSet1: TADODataSet;
+    DataSource1: TDataSource;
 
     procedure BitBtn1Click(Sender: TObject);
     procedure Button1Click(Sender: TObject);
@@ -23,9 +28,11 @@ type
     procedure image2DragDrop(Sender, Source: TObject; X, Y: Integer);
     procedure image1StartDrag(Sender: TObject;
       var DragObject: TDragObject);
+    procedure FormActivate(Sender: TObject);
   private
     { Private declarations }
      aPicture : TPicture;
+     procedure RefreshDBGrid1()  ;
   public
     { Public declarations }
   end;
@@ -102,6 +109,28 @@ begin
            begin
             BeginDrag(True);
            end;
+end;
+
+procedure TForm1.RefreshDBGrid1();
+begin
+
+         with ADOCommand1 do begin
+
+          CommandText := 'SELECT name, capital, continent ' +   'FROM country ' ;
+
+          //+   'WHERE State = :StateParam';
+          //CommandType := cmdText;
+          //Parameters.ParamByName('StateParam').Value := 'HI';
+
+          ADODataSet1.Recordset := Execute;
+          DataSource1 :=    ADODataSet1.DataSource;
+          //DBGrid1.Refresh();
+
+         end;
+end;
+procedure TForm1.FormActivate(Sender: TObject);
+begin
+         // RefreshDBGrid1();
 end;
 
 end.

@@ -1,6 +1,6 @@
 object Form1: TForm1
-  Left = 429
-  Top = 122
+  Left = 333
+  Top = 66
   Width = 1032
   Height = 736
   Caption = 'Form1'
@@ -13,6 +13,7 @@ object Form1: TForm1
   Menu = MainMenu1
   OldCreateOrder = False
   WindowState = wsMaximized
+  OnActivate = FormActivate
   PixelsPerInch = 96
   TextHeight = 13
   object Image1: TImage
@@ -56,8 +57,45 @@ object Form1: TForm1
     Caption = 'Panel1'
     TabOrder = 2
   end
+  object DBGrid1: TDBGrid
+    Left = 64
+    Top = 72
+    Width = 369
+    Height = 97
+    TabOrder = 3
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'MS Sans Serif'
+    TitleFont.Style = []
+  end
   object MainMenu1: TMainMenu
-    Left = 32
-    Top = 144
+    Top = 16
+  end
+  object ADOConnection1: TADOConnection
+    ConnectionString = 
+      'Provider=MSDASQL.1;Password="";Persist Security Info=True;Data S' +
+      'ource=dbtest;Initial Catalog=D:\_WORKBASE\_LEARNING\Delphi\DB\db' +
+      'demos'
+    Provider = 'MSDASQL.1'
+    Left = 56
+    Top = 16
+  end
+  object ADOCommand1: TADOCommand
+    Connection = ADOConnection1
+    Parameters = <>
+    Left = 104
+    Top = 16
+  end
+  object ADODataSet1: TADODataSet
+    Connection = ADOConnection1
+    DataSource = DataSource1
+    Parameters = <>
+    Left = 152
+    Top = 16
+  end
+  object DataSource1: TDataSource
+    Left = 208
+    Top = 16
   end
 end

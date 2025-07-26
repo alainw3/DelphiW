@@ -1,6 +1,6 @@
 object Form2: TForm2
-  Left = 198
-  Top = 184
+  Left = 274
+  Top = 174
   Width = 1036
   Height = 648
   Align = alCustom
@@ -23,19 +23,6 @@ object Form2: TForm2
     Height = 13
     Caption = 'HELLO'
   end
-  object Label2: TLabel
-    Left = 283
-    Top = 192
-    Width = 68
-    Height = 13
-    Caption = 'New capital'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -11
-    Font.Name = 'MS Sans Serif'
-    Font.Style = [fsBold]
-    ParentFont = False
-  end
   object Label3: TLabel
     Left = 40
     Top = 248
@@ -57,6 +44,19 @@ object Form2: TForm2
     Height = 13
     Caption = 'Continent'
   end
+  object Label2: TLabel
+    Left = 48
+    Top = 224
+    Width = 14
+    Height = 13
+    Caption = 'ID'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
   object Button1: TButton
     Left = 760
     Top = 528
@@ -71,7 +71,7 @@ object Form2: TForm2
     Top = 32
     Width = 209
     Height = 153
-    Date = 45583.706402939820000000
+    Date = 45583.407448240740000000
     TabOrder = 1
     OnClick = MonthCalendar1Click
   end
@@ -96,9 +96,7 @@ object Form2: TForm2
     TitleFont.Name = 'MS Sans Serif'
     TitleFont.Style = []
     OnCellClick = DBGrid1CellClick
-    OnDblClick = DBGrid1DblClick
     OnEditButtonClick = DBGrid1EditButtonClick
-    OnEnter = DBGrid1Enter
   end
   object DBChart1: TDBChart
     Left = 632
@@ -137,27 +135,20 @@ object Form2: TForm2
     OnClick = Button2Click
   end
   object Button3: TButton
-    Left = 488
-    Top = 184
+    Left = 232
+    Top = 296
     Width = 105
     Height = 41
     Caption = 'Save'
     TabOrder = 6
     OnClick = Button3Click
   end
-  object Edit2: TEdit
-    Left = 360
-    Top = 192
-    Width = 97
-    Height = 21
-    TabOrder = 7
-  end
   object Edit3: TEdit
     Left = 104
     Top = 248
     Width = 81
     Height = 21
-    TabOrder = 8
+    TabOrder = 7
     Text = 'Edit3'
   end
   object Edit4: TEdit
@@ -165,7 +156,7 @@ object Form2: TForm2
     Top = 280
     Width = 81
     Height = 21
-    TabOrder = 9
+    TabOrder = 8
     Text = 'Edit4'
   end
   object Edit5: TEdit
@@ -173,8 +164,18 @@ object Form2: TForm2
     Top = 312
     Width = 81
     Height = 21
-    TabOrder = 10
+    TabOrder = 9
     Text = 'Edit5'
+  end
+  object Edit2: TEdit
+    Left = 104
+    Top = 224
+    Width = 81
+    Height = 21
+    Color = clScrollBar
+    ReadOnly = True
+    TabOrder = 10
+    Text = 'Edit2'
   end
   object ADOConnection1: TADOConnection
     ConnectionString = 

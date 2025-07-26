@@ -8,8 +8,6 @@ uses
   PAGE3 in 'PAGE3.pas',
   PAGE4 in 'PAGE4.pas';
 
-
-
 var
   MySupport : string;
 {$R *.res}
