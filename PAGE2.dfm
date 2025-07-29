@@ -1,6 +1,6 @@
 object Form2: TForm2
-  Left = 274
-  Top = 174
+  Left = 694
+  Top = 192
   Width = 1036
   Height = 648
   Align = alCustom
@@ -24,25 +24,25 @@ object Form2: TForm2
     Caption = 'HELLO'
   end
   object Label3: TLabel
-    Left = 40
+    Left = 16
     Top = 248
-    Width = 28
+    Width = 17
     Height = 13
-    Caption = 'Name'
+    Caption = 'Job'
   end
   object Label4: TLabel
-    Left = 40
+    Left = 16
     Top = 280
-    Width = 32
+    Width = 76
     Height = 13
-    Caption = 'Capital'
+    Caption = 'Responsabilities'
   end
   object Label5: TLabel
-    Left = 40
+    Left = 16
     Top = 320
-    Width = 45
+    Width = 6
     Height = 13
-    Caption = 'Continent'
+    Caption = 'u'
   end
   object Label2: TLabel
     Left = 48
@@ -71,7 +71,7 @@ object Form2: TForm2
     Top = 32
     Width = 209
     Height = 153
-    Date = 45583.407448240740000000
+    Date = 45583.652060138890000000
     TabOrder = 1
     OnClick = MonthCalendar1Click
   end
@@ -135,8 +135,8 @@ object Form2: TForm2
     OnClick = Button2Click
   end
   object Button3: TButton
-    Left = 232
-    Top = 296
+    Left = 472
+    Top = 344
     Width = 105
     Height = 41
     Caption = 'Save'
@@ -146,7 +146,7 @@ object Form2: TForm2
   object Edit3: TEdit
     Left = 104
     Top = 248
-    Width = 81
+    Width = 481
     Height = 21
     TabOrder = 7
     Text = 'Edit3'
@@ -154,7 +154,7 @@ object Form2: TForm2
   object Edit4: TEdit
     Left = 104
     Top = 280
-    Width = 81
+    Width = 481
     Height = 21
     TabOrder = 8
     Text = 'Edit4'
@@ -162,7 +162,7 @@ object Form2: TForm2
   object Edit5: TEdit
     Left = 104
     Top = 312
-    Width = 81
+    Width = 481
     Height = 21
     TabOrder = 9
     Text = 'Edit5'

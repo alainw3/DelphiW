@@ -108,10 +108,10 @@ begin
          with ADOCommand1 do begin
 
           CommandText := 'UPDATE country set ' +
-                          ' name=:newCountryName, ' +
-                          ' capital=:newCountryCapital, ' +
-                          ' continent :=  newCountryContinent '+
-                         '  where name=:idValue  ' ;
+                          ' name        =:newCountryName, ' +
+                          ' capital     =:newCountryCapital, ' +
+                          ' continent   =:newCountryContinent '+
+                         '  where name  =:idValue  ' ;
 
           CommandType := cmdText;
 
@@ -163,15 +163,18 @@ end;
 procedure TForm2.DBGrid1CellClick(Column: TColumn);
 begin
       I :=    DBGrid1.SelectedIndex ;
-      Edit3.Text := Column.DisplayName ;
-      if DBGrid1.SelectedRows.Count>0 then
-        Application.MessageBox('hekko','Hello',0);
+
+
+      //if DBGrid1.SelectedRows.Count>0 then
+      //  Application.MessageBox('hekko','Hello',0);
 
 
       DBGrid1.SelectedIndex :=0 ;
       with DBGrid1.SelectedField do
         Edit3.Text :=Text;
-        Edit2.Text :=Text;
+        
+      Edit2.Text :=Edit3.Text;
+
 
       DBGrid1.SelectedIndex :=1;
       with DBGrid1.SelectedField do

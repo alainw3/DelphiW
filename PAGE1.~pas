@@ -130,7 +130,7 @@ begin
 end;
 procedure TForm1.FormActivate(Sender: TObject);
 begin
-         RefreshDBGrid1();
+          RefreshDBGrid1();
 end;
 
 end.

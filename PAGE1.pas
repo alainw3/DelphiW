@@ -15,7 +15,6 @@ type
     Button1: TButton;
     Image1: TImage;
     Image2: TImage;
-    Panel1: TPanel;
     ADOConnection1: TADOConnection;
     ADOCommand1: TADOCommand;
     DBGrid1: TDBGrid;
@@ -113,24 +112,14 @@ end;
 
 procedure TForm1.RefreshDBGrid1();
 begin
-
-         with ADOCommand1 do begin
-
-          CommandText := 'SELECT name, capital, continent ' +   'FROM country ' ;
-
-          //+   'WHERE State = :StateParam';
-          //CommandType := cmdText;
-          //Parameters.ParamByName('StateParam').Value := 'HI';
-
-          ADODataSet1.Recordset := Execute;
-          DataSource1 :=    ADODataSet1.DataSource;
-          //DBGrid1.Refresh();
-
-         end;
+         ADOCommand1.CommandText:= 'SELECT CustNo,	Company	,Addr1,	Addr2,	City,	State	,Zip  '
+                                   + ' FROM customer ' ;
+         ADODataSet1.Recordset := ADOCommand1.Execute;
+         DataSource1 :=    ADODataSet1.DataSource;
 end;
 procedure TForm1.FormActivate(Sender: TObject);
 begin
-         // RefreshDBGrid1();
+          RefreshDBGrid1();
 end;
 
 end.

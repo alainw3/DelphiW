@@ -124,19 +124,7 @@ begin
 
          end;
 
-         with ADOCommand1 do begin
 
-          CommandText := 'SELECT name, capital, continent ' +   'FROM country ' ;
-
-          //+   'WHERE State = :StateParam';
-          //CommandType := cmdText;
-          //Parameters.ParamByName('StateParam').Value := 'HI';
-
-          ADODataSet1.Recordset := Execute;
-          DataSource1 :=    ADODataSet1.DataSource;
-          //DBGrid1.Refresh();
-
-         end;
          RefreshDBGrid1();
 end;
 
@@ -144,19 +132,19 @@ end;
 procedure TForm2.RefreshDBGrid1();
 begin
 
-         with ADOCommand1 do begin
+         //with ADOCommand1 do begin
 
-          CommandText := 'SELECT name, capital, continent ' +   'FROM country ' ;
+           //CommandText := 'SELECT name, capital, continent ' +   'FROM country ' ;
 
-          //+   'WHERE State = :StateParam';
-          //CommandType := cmdText;
-          //Parameters.ParamByName('StateParam').Value := 'HI';
+           ////+   'WHERE State = :StateParam';
+           ////CommandType := cmdText;
+           ////Parameters.ParamByName('StateParam').Value := 'HI';
 
-          ADODataSet1.Recordset := Execute;
-          DataSource1 :=    ADODataSet1.DataSource;
+         //end;
+         ADOCommand1.CommandText:= 'SELECT name, capital, continent ' +   'FROM country ' ;
+         ADODataSet1.Recordset := ADOCommand1.Execute;
+         DataSource1 :=    ADODataSet1.DataSource;
           //DBGrid1.Refresh();
-
-         end;
 end;
 
 
