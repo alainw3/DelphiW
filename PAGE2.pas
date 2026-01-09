@@ -115,7 +115,7 @@ begin
 
           CommandType := cmdText;
 
-          Parameters.ParamByName('idValue').Value  := Edit2.Text;
+          Parameters.ParamByName('idValue').Value         := Edit2.Text;
           Parameters.ParamByName('NewCountryName').Value  := Edit3.Text;
           Parameters.ParamByName('newCountryCapital').Value   := Edit4.Text;
           Parameters.ParamByName('newCountryContinent').Value  := Edit5.Text;

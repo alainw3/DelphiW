@@ -21,6 +21,13 @@ type
     ADODataSet1: TADODataSet;
     DataSource1: TDataSource;
 
+    Edit1: TEdit;
+    Label1: TLabel;
+    Label2: TLabel;
+    Edit2: TEdit;
+    CheckBoxArz: TCheckBox;
+    Button2: TButton;
+
     procedure BitBtn1Click(Sender: TObject);
     procedure Button1Click(Sender: TObject);
     procedure Image1Click(Sender: TObject);
@@ -28,6 +35,8 @@ type
     procedure image1StartDrag(Sender: TObject;
       var DragObject: TDragObject);
     procedure FormActivate(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+    procedure DBGrid1CellClick(Column: TColumn);
   private
     { Private declarations }
      aPicture : TPicture;
@@ -120,6 +129,60 @@ end;
 procedure TForm1.FormActivate(Sender: TObject);
 begin
           RefreshDBGrid1();
+end;
+
+procedure TForm1.Button2Click(Sender: TObject);
+begin
+          with ADOCommand1 do begin
+
+          CommandText := 'UPDATE customer set ' +
+                          ' company         =:newCompanyName,   ' +
+                          ' Addr2           =:newArz ' +
+                          ' where CustNo    =:idValue ' ;
+
+          CommandType := cmdText;
+
+          Parameters.ParamByName('idValue').Value         := Edit1.Text;
+          Parameters.ParamByName('newCompanyName').Value  := Edit2.Text;
+          Parameters.ParamByName('newArz').Value          := ' ';
+
+          if CheckBoxArz.Checked then
+          begin
+              Parameters.ParamByName('newArz').Value   := '*';
+          end;
+
+          Execute;
+
+         end;
+
+
+         RefreshDBGrid1();
+end;
+
+procedure TForm1.DBGrid1CellClick(Column: TColumn);
+begin
+      I:=   DBGrid1.SelectedIndex ;
+
+
+      DBGrid1.SelectedIndex :=0 ;
+      with DBGrid1.SelectedField do
+        Edit1.Text :=Text;
+
+      DBGrid1.SelectedIndex :=1;
+      with DBGrid1.SelectedField do
+        Edit2.Text :=Text;
+
+      DBGrid1.SelectedIndex :=3;
+      with DBGrid1.SelectedField do
+        if Text='*' then
+             CheckBoxArz.Checked := True
+        else
+             CheckBoxArz.Checked := False;
+
+
+
+
+     DBGrid1.SelectedIndex :=I ;
 end;
 
 end.
