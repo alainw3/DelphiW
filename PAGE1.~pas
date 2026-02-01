@@ -136,21 +136,19 @@ begin
           with ADOCommand1 do begin
 
           CommandText := 'UPDATE customer set ' +
-                          ' company         =''ABC'' ,   ' +
-//                         ' Adr2            =:newArz ' +
-                          ' Adr1            =''222''' +
-                          ' where CustNo    =1221 ' ;
+                          ' company         =:newCompanyName,   ' +
+                          ' Addr2           =:newArz ' +
+                          ' where CustNo    =:idValue ' ;
 
           CommandType := cmdText;
 
-          //Parameters.ParamByName('idValue').Value         := Edit1.Text;
-          //Parameters.ParamByName('newCompanyName').Value  := Edit2.Text;
-          //Parameters.ParamByName('newAdr1').Value         := Edit2.Text;
-          //Parameters.ParamByName('newArz').Value          := '11';
+          Parameters.ParamByName('idValue').Value         := Edit1.Text;
+          Parameters.ParamByName('newCompanyName').Value  := Edit2.Text;
+          Parameters.ParamByName('newArz').Value          := ' ';
 
           if CheckBoxArz.Checked then
           begin
-              //Parameters.ParamByName('newArz').Value   := '*';
+              Parameters.ParamByName('newArz').Value   := '*';
           end;
 
           Execute;
@@ -176,7 +174,7 @@ begin
 
       DBGrid1.SelectedIndex :=3;
       with DBGrid1.SelectedField do
-        if Text='Suite 103' then
+        if Text='*' then
              CheckBoxArz.Checked := True
         else
              CheckBoxArz.Checked := False;

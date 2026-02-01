@@ -1,6 +1,6 @@
 object Form1: TForm1
-  Left = 183
-  Top = 158
+  Left = 261
+  Top = 116
   Width = 1032
   Height = 726
   Caption = 'Form1'
@@ -45,6 +45,13 @@ object Form1: TForm1
     Height = 13
     Caption = 'Company name'
   end
+  object Label3: TLabel
+    Left = 40
+    Top = 488
+    Width = 34
+    Height = 13
+    Caption = 'Region'
+  end
   object BitBtn1: TBitBtn
     Left = 800
     Top = 56
@@ -69,6 +76,7 @@ object Form1: TForm1
     Width = 737
     Height = 329
     DataSource = DataSource1
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit]
     TabOrder = 2
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
@@ -95,7 +103,7 @@ object Form1: TForm1
   end
   object CheckBoxArz: TCheckBox
     Left = 24
-    Top = 472
+    Top = 536
     Width = 97
     Height = 17
     Caption = 'ARZ'
@@ -109,6 +117,15 @@ object Form1: TForm1
     Caption = 'Save'
     TabOrder = 6
     OnClick = Button2Click
+  end
+  object ComboBox1: TComboBox
+    Left = 128
+    Top = 480
+    Width = 281
+    Height = 21
+    Style = csDropDownList
+    ItemHeight = 13
+    TabOrder = 7
   end
   object MainMenu1: TMainMenu
     Top = 16

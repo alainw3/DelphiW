@@ -27,6 +27,9 @@ type
     Edit2: TEdit;
     CheckBoxArz: TCheckBox;
     Button2: TButton;
+    ComboBox1: TComboBox;
+    Label3: TLabel;
+
 
     procedure BitBtn1Click(Sender: TObject);
     procedure Button1Click(Sender: TObject);
@@ -40,6 +43,7 @@ type
   private
     { Private declarations }
      aPicture : TPicture;
+     Opened : BOOL;
      procedure RefreshDBGrid1()  ;
   public
     { Public declarations }
@@ -128,6 +132,11 @@ begin
 end;
 procedure TForm1.FormActivate(Sender: TObject);
 begin
+          if not  opened then
+          begin
+            ComboBox1.Items.Add('Bonjour');
+            opened := True ;
+          end;
           RefreshDBGrid1();
 end;
 
@@ -137,13 +146,15 @@ begin
 
           CommandText := 'UPDATE customer set ' +
                           ' company         =:newCompanyName,   ' +
-                          ' Addr2           =:newArz ' +
+                          ' Addr2           =:newArz, ' +
+                          ' City            =:newRegion ' +
                           ' where CustNo    =:idValue ' ;
 
           CommandType := cmdText;
 
           Parameters.ParamByName('idValue').Value         := Edit1.Text;
           Parameters.ParamByName('newCompanyName').Value  := Edit2.Text;
+          Parameters.ParamByName('newRegion').Value       := ComboBox1.Text;
           Parameters.ParamByName('newArz').Value          := ' ';
 
           if CheckBoxArz.Checked then
