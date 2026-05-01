@@ -29,6 +29,14 @@ type
     Button2: TButton;
     ComboBox1: TComboBox;
     Label3: TLabel;
+    Label4: TLabel;
+    DBGrid2: TDBGrid;
+    DataSource2: TDataSource;
+    ADODataSet2: TADODataSet;
+    Button3: TButton;
+    Edit3: TEdit;
+    ADODataSet3: TADODataSet;
+    Button4: TButton;
 
 
     procedure BitBtn1Click(Sender: TObject);
@@ -40,11 +48,18 @@ type
     procedure FormActivate(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure DBGrid1CellClick(Column: TColumn);
+    procedure DBGrid1KeyUp(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure Button3Click(Sender: TObject);
+    procedure Button4Click(Sender: TObject);
+  
+
   private
     { Private declarations }
      aPicture : TPicture;
      Opened : BOOL;
      procedure RefreshDBGrid1()  ;
+     procedure RefreshForm();
   public
     { Public declarations }
   end;
@@ -129,12 +144,14 @@ begin
                                    + ' FROM customer ' ;
          ADODataSet1.Recordset := ADOCommand1.Execute;
          DataSource1 :=    ADODataSet1.DataSource;
+
 end;
 procedure TForm1.FormActivate(Sender: TObject);
 begin
           if not  opened then
           begin
             ComboBox1.Items.Add('Bonjour');
+            ComboBox1.Items.Add('Hello');
             opened := True ;
           end;
           RefreshDBGrid1();
@@ -172,8 +189,30 @@ end;
 
 procedure TForm1.DBGrid1CellClick(Column: TColumn);
 begin
+    RefreshForm();
+end;
+
+procedure TForm1.DBGrid1KeyUp(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+    RefreshForm();
+end;
+
+
+
+procedure TForm1.RefreshForm();
+begin
+
       I:=   DBGrid1.SelectedIndex ;
 
+      if  (Edit1.Text <>'ID') then
+      begin
+          ADOCommand1.CommandText:= 'SELECT OrderNo, ShipVIA,	ShipToAddr1  '
+                                   + ' FROM orders where custNo =' +  Edit1.Text  ;
+          ADODataSet2.Recordset := ADOCommand1.Execute;
+
+           DataSource2 :=    ADODataSet2.DataSource;
+      end;
 
       DBGrid1.SelectedIndex :=0 ;
       with DBGrid1.SelectedField do
@@ -190,10 +229,56 @@ begin
         else
              CheckBoxArz.Checked := False;
 
+      DBGrid1.SelectedIndex :=4;
+      with DBGrid1.SelectedField do
+        ComboBox1.ItemIndex:=ComboBox1.Items.IndexOf(Text);
+
+      DBGrid1.SelectedIndex := I ;
+
+end;
+
+procedure TForm1.Button3Click(Sender: TObject);
+begin
+      ADOCommand1.CommandText:= 'SELECT max(OrderNo)+1  FROM orders'  ;
+      ADODataSet3.Recordset := ADOCommand1.Execute;
+      Edit3.Text :=ADODataSet3.Recordset.Fields.Item[0].Value;
+
+      with ADOCommand1 do begin
+        CommandText := 'INSERT INTO orders ' +
+        '(OrderNo,CustNo, EmpNo,ShipVia) ' +
+        'VALUES (:NewValueParam,:newValueCustNo, :newEmpNo, :NewValueShipVia)';
+      CommandType := cmdText;
+      Parameters.ParamByName('NewValueParam').Value := Edit3.Text ;
+      Parameters.ParamByName('newValueCustNo').Value := Edit1.Text ;
+      Parameters.ParamByName('newEmpNo').Value := 114 ;
+      Parameters.ParamByName('NewValueShipVia').Value := 'New' ;
+      Execute
+end;
 
 
 
-     DBGrid1.SelectedIndex :=I ;
+
+end;
+
+
+procedure TForm1.Button4Click(Sender: TObject);
+begin
+
+      DBGrid2.SelectedIndex :=0 ;
+      with DBGrid2.SelectedField do
+        Edit3.Text :=Text;
+
+      with ADOCommand1 do
+      begin
+        CommandText := 'DELETE FROM  orders WHERE OrderNo = 1302';
+        CommandType := cmdText;
+        //Parameters.ParamByName('orderNoValue').Value := Edit3.Text ;
+        Execute
+      end;
 end;
 
 end.
+
+
+
+
