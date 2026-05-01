@@ -1,1 +1,3 @@
-These is a project Windows program written on the programming language DELPHI. 
+A software to store contacts only on your computer, without requiring Internet. 
+
+It frees your from Cloud based software,
